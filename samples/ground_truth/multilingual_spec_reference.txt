@@ -1,0 +1,7 @@
+ESPECIFICACIÓN DEL SISTEMA UNIFILE POR SONISCORETT
+
+Este conector universal de solo lectura permite a los modelos de inteligencia artificial procesar cualquier archivo.
+Detecta y elimina automáticamente distorsiones, texto encriptado, archivos truncados y símbolos corruptos.
+Garantiza que el texto final sea al menos 80% legible en el idioma preferido del usuario.
+El sistema no modifica los archivos originales y protege la seguridad del entorno.
+Resultado final: documento completamente limpio, traducido y optimizado para LLMs.

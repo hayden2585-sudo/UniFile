@@ -1,0 +1,23 @@
+{
+  "system": "Soniscorett Unifile Universal Connector",
+  "version": "2.4.0",
+  "health": "operational",
+  "read_only": true,
+  "cluster_nodes": [
+    {
+      "node_id": "us-east-1a",
+      "status": "active",
+      "latency_ms": 12.4
+    },
+    {
+      "node_id": "eu-central-1",
+      "status": "active",
+      "latency_ms": 19.8
+    },
+    {
+      "node_id": "ap-southeast-1",
+      "status": "syncing",
+      "payload": "Interconnecting neural model bridge with automatic truncation recovery and syntax healing"
+    }
+  ]
+}

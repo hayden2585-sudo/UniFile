@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unifile by Soniscorett | Universal Read-Only AI File Translator Connector</title>
+  <link rel="icon" type="image/svg+xml" href="/static/assets/favicon.svg">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header>
+    <div class="header-container">
+      <a href="/" class="brand-wrapper">
+        <img src="/static/assets/unifile-icon.svg" alt="Unifile Icon" class="header-icon">
+        <div class="brand-titles">
+          <h1>Unifile <span class="brand-accent">by Soniscorett</span></h1>
+          <div class="brand-subtitle">Universal AI File Translator & Normalization Connector</div>
+        </div>
+      </a>
+      <div class="nav-badges">
+        <span class="badge badge-emerald">● MCP 1.0 Ready</span>
+        <span class="badge badge-cyan">🔒 Strictly Read-Only</span>
+        <span class="badge badge-violet">⚡ ≥80% Readability</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Showcase Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h2>The Universal AI File Connector that <span class="hero-highlight">Heals, Decrypts & Translates</span> Any Document</h2>
+      <p class="hero-desc">
+        Empower AI models with a strictly read-only universal file gateway. Unifile by Soniscorett automatically parses 30+ formats (PDF, Word, Excel, PowerPoint, Archives, Binaries), eliminates Mojibake, strips Zalgo and symbol noise, cracks basic obfuscation/ciphers, heals truncated syntax, and translates into your target language—guaranteeing at least <strong>80% human & AI readability</strong>.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <div class="stat-value" id="metric-hero-score">96.8%</div>
+          <div class="stat-label">Restored Readability</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value emerald">30+</div>
+          <div class="stat-label">File Formats Supported</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value violet">100% Free</div>
+          <div class="stat-label">MIT Open Source</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Animated Icon Showcase Card -->
+    <div class="hero-icon-showcase">
+      <img src="/static/assets/unifile-icon.svg" alt="Unifile Animated Holographic Icon" class="animated-icon-large" onclick="toggleIconSpeed()">
+      <div class="icon-tagline">Soniscorett Kinetic Crystal Engine</div>
+      <div class="icon-subline">Glitch & distortion streaming in → Crystalline refraction → Pristine ≥80% output</div>
+      <div class="icon-actions">
+        <button class="btn-sm-ghost" onclick="toggleIconSpeed()">✨ Boost Hologram Glow</button>
+        <a href="#icon-tab" class="btn-sm-ghost" onclick="document.querySelector('[data-tab=\'tab-icon\']').click()">📦 Get Animated Icon</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Studio & Playground -->
+  <main class="main-workspace">
+    <div class="workspace-card">
+      
+      <!-- Workspace Header -->
+      <div class="workspace-header">
+        <div class="workspace-title">
+          <div class="studio-mode-nav">
+            <button id="mode-file-btn" class="mode-btn active" onclick="switchStudioMode('file')">📁 Universal File & Text</button>
+            <button id="mode-chat-btn" class="mode-btn" onclick="switchStudioMode('chat')">🔄 AI Chat Share & Sync (ChatGPT/Claude/Perplexity)</button>
+          </div>
+        </div>
+        <div class="control-bar">
+          <div class="lang-selector-group">
+            <label class="control-label" for="target-lang">Target Language:</label>
+            <select id="target-lang" class="styled-select">
+              <option value="en" selected>English (Default)</option>
+              <option value="es">Spanish (Español)</option>
+              <option value="fr">French (Français)</option>
+              <option value="de">German (Deutsch)</option>
+              <option value="it">Italian (Italiano)</option>
+              <option value="pt">Portuguese (Português)</option>
+              <option value="zh">Chinese (中文)</option>
+              <option value="ja">Japanese (日本語)</option>
+              <option value="ru">Russian (Русский)</option>
+              <option value="ar">Arabic (العربية)</option>
+              <option value="hi">Hindi (हिन्दी)</option>
+            </select>
+          </div>
+          <button id="btn-run-unifile" class="btn-primary">
+            <span>⚡ Restore & Translate File (≥80% Guaranteed)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Preset Selector Bar -->
+      <div class="sample-bar">
+        <span class="sample-bar-label">Test Scenarios:</span>
+        <button class="sample-chip" onclick="loadPreset('mojibake')">📄 Mojibake Latin-1</button>
+        <button class="sample-chip" onclick="loadPreset('zalgo')">🔮 Zalgo & Glitch Text</button>
+        <button class="sample-chip" onclick="loadPreset('base64')">🔐 Base64 & Hex Contract</button>
+        <button class="sample-chip" onclick="loadPreset('json')">🧩 Truncated JSON</button>
+        <button class="sample-chip" onclick="loadPreset('spanish')">🌐 Garbled Spanish Spec</button>
+      </div>
+
+      <!-- File Dropzone & Chaos Injector -->
+      <div class="dropzone-container">
+        <div id="file-dropzone" class="file-dropzone">
+          <div class="dropzone-icon">📁</div>
+          <div id="dropzone-display-name" class="dropzone-text">Drag & drop ANY file here (PDF, DOCX, XLSX, PPTX, CSV, JSON, ZIP, Binaries, etc.)</div>
+          <div class="dropzone-subtext">or click to browse from local drive • Strictly Read-Only Sandbox Execution</div>
+          <input type="file" id="file-input" class="hidden-file-input">
+        </div>
+
+        <!-- Chaos / Distortion Injector -->
+        <div class="distortion-toolbox">
+          <span class="toolbox-title">🔥 Stress-Test Distortion Engine:</span>
+          <button class="btn-chaos-chip" onclick="injectCorruption('zalgo')">+ Add Zalgo Glitch</button>
+          <button class="btn-chaos-chip" onclick="injectCorruption('mojibake')">+ Inject Mojibake</button>
+          <button class="btn-chaos-chip" onclick="injectCorruption('base64')">+ Encrypt Base64</button>
+          <button class="btn-chaos-chip" onclick="injectCorruption('rot13')">+ ROT-13 Cipher</button>
+          <button class="btn-chaos-chip" onclick="injectCorruption('truncate_json')">+ Truncate JSON</button>
+          <button class="btn-chaos-chip" onclick="injectCorruption('leetspeak')">+ Leetspeak 1337</button>
+          <button class="btn-chaos-chip" onclick="injectCorruption('all_chaos')">⚠️ Maximum Entropy Chaos</button>
+        </div>
+
+        <!-- Studio Panes (Before vs After) -->
+        <div class="studio-grid">
+          
+          <!-- Left: Input Pane -->
+          <div class="pane">
+            <div class="pane-header">
+              <div class="pane-title">
+                <span>📥 Raw / Corrupted Source</span>
+              </div>
+              <span id="input-score-badge" class="pane-score-badge score-bad">Readability: 24%</span>
+            </div>
+            <div class="pane-body">
+              <textarea id="input-text" class="pane-textarea" placeholder="Paste distorted, encrypted, truncated or symbol-polluted text here, or drag a file above..."></textarea>
+            </div>
+            <div class="pane-footer">
+              <span>Read-only memory stream</span>
+              <span>Encoding: Auto-detected</span>
+            </div>
+          </div>
+
+          <!-- Right: Cleaned & Translated Pane -->
+          <div class="pane">
+            <div class="pane-header">
+              <div class="pane-title">
+                <span>✨ Unifile Pristine Output</span>
+              </div>
+              <span id="output-score-badge" class="pane-score-badge score-good">Readability: 96% • Pristine (A+)</span>
+            </div>
+            <div class="pane-body">
+              <pre id="output-text" class="output-pre">Click 'Restore & Translate File' to process...</pre>
+            </div>
+            <div class="pane-footer">
+              <span id="output-word-count">≥80% Guaranteed Quality Threshold Met</span>
+              <div class="pane-actions">
+                <button id="btn-copy-output" class="btn-icon-text">
+                  <span>📋 Copy for AI Prompt</span>
+                </button>
+                <button id="btn-download-output" class="btn-icon-text">
+                  <span>💾 Download File</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Diagnostics & Transformations Audit -->
+        <div class="diagnostics-panel">
+          <div class="diag-header">
+            <div class="diag-title">
+              <span>🛡️ Soniscorett Normalization & Recovery Audit Trail</span>
+            </div>
+            <span class="badge badge-emerald">Safe Sandbox Execution</span>
+          </div>
+          <div id="diag-badges-container" class="diag-badges">
+            <div class="diag-chip"><span>🛠️</span> <span>Repaired UTF-8 double-encoding mojibake</span></div>
+            <div class="diag-chip"><span>🧹</span> <span>Stripped 23 Zalgo combining diacritics</span></div>
+            <div class="diag-chip"><span>🔓</span> <span>Decoded Base64 encrypted stream</span></div>
+            <div class="diag-chip"><span>🌐</span> <span>Translated to English</span></div>
+          </div>
+
+          <div class="diag-metrics-grid">
+            <div class="metric-box">
+              <div class="metric-title">Lexical Coherence</div>
+              <div id="m-lexical" class="metric-val">96.4%</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-title">Encoding Integrity</div>
+              <div id="m-encoding" class="metric-val">100.0%</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-title">Symbol Cleanliness</div>
+              <div id="m-symbol" class="metric-val">98.2%</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-title">Structural Flow</div>
+              <div id="m-structural" class="metric-val">94.8%</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- AI Chat Share & Context Synchronizer Container -->
+      <div id="chat-bridge-container" class="chat-bridge-container">
+        
+        <!-- Preset Selector for Chat Share -->
+        <div class="sample-bar" style="margin-bottom: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+          <span class="sample-bar-label">Sample Shared Threads:</span>
+          <button class="sample-chip" onclick="loadChatPreset('chatgpt')">💬 ChatGPT Share (Next.js Hydrated)</button>
+          <button class="sample-chip" onclick="loadChatPreset('claude')">🤖 Claude Conversation (Deep Context)</button>
+          <button class="sample-chip" onclick="loadChatPreset('perplexity')">🔍 Perplexity Research (with Citations)</button>
+        </div>
+
+        <div class="chat-input-row">
+          <input type="text" id="chat-source-input" class="chat-url-input" placeholder="Paste ChatGPT, Claude, or Perplexity share URL, or raw HTML/JSON conversation dump...">
+          <button id="btn-retrieve-chat" class="btn-primary" onclick="retrieveChatShare()">
+            <span>🔄 Retrieve, Heal & Sync Context</span>
+          </button>
+        </div>
+
+        <!-- Chat Output Overview & Metrics -->
+        <div class="diag-header" style="margin-top: 10px;">
+          <div class="diag-title">
+            <span id="chat-thread-title">💬 Thread Overview</span>
+          </div>
+          <span id="chat-score-badge" class="badge badge-emerald">Readability: 97.4% (Threshold Satisfied)</span>
+        </div>
+
+        <!-- Reconstructed Conversation Turns Flow -->
+        <div id="chat-turns-flow" class="chat-thread-viewer">
+          <div class="chat-turn-card chat-turn-user">
+            <div class="turn-header user-header">
+              <span>👤 User</span>
+              <span>Input Query</span>
+            </div>
+            <div class="turn-content">Paste a shared conversation URL or click a sample thread above to retrieve and ungarble messages...</div>
+          </div>
+        </div>
+
+        <!-- Cross-Model Synchronized Handover Hub -->
+        <div class="sync-handover-panel">
+          <div class="sync-tabs">
+            <button class="sync-tab-btn active" onclick="switchSyncTab('claude')">🤖 Claude XML Handover</button>
+            <button class="sync-tab-btn" onclick="switchSyncTab('openai')">💬 OpenAI / ChatGPT JSON</button>
+            <button class="sync-tab-btn" onclick="switchSyncTab('gemini')">♊ Gemini Contents</button>
+            <button class="sync-tab-btn" onclick="switchSyncTab('perplexity')">🔍 Perplexity Query</button>
+            <button class="sync-tab-btn" onclick="switchSyncTab('markdown')">📄 Markdown Transcript</button>
+          </div>
+
+          <div id="sync-content-claude" class="sync-tab-content active">
+            <div class="code-block-wrapper">
+              <div class="code-header">
+                <span>Claude Context Handover XML</span>
+                <button class="btn-icon-text" onclick="copyCode('code-sync-claude')">Copy</button>
+              </div>
+              <pre id="code-sync-claude" class="code-pre">&lt;!-- Handover context will populate automatically upon retrieval --&gt;</pre>
+            </div>
+          </div>
+
+          <div id="sync-content-openai" class="sync-tab-content">
+            <div class="code-block-wrapper">
+              <div class="code-header">
+                <span>OpenAI Messages Array JSON</span>
+                <button class="btn-icon-text" onclick="copyCode('code-sync-openai')">Copy</button>
+              </div>
+              <pre id="code-sync-openai" class="code-pre">// OpenAI messages will populate here</pre>
+            </div>
+          </div>
+
+          <div id="sync-content-gemini" class="sync-tab-content">
+            <div class="code-block-wrapper">
+              <div class="code-header">
+                <span>Gemini API Contents JSON</span>
+                <button class="btn-icon-text" onclick="copyCode('code-sync-gemini')">Copy</button>
+              </div>
+              <pre id="code-sync-gemini" class="code-pre">// Gemini contents will populate here</pre>
+            </div>
+          </div>
+
+          <div id="sync-content-perplexity" class="sync-tab-content">
+            <div class="code-block-wrapper">
+              <div class="code-header">
+                <span>Perplexity Search Query Bundle</span>
+                <button class="btn-icon-text" onclick="copyCode('code-sync-perplexity')">Copy</button>
+              </div>
+              <pre id="code-sync-perplexity" class="code-pre">// Perplexity query bundle will populate here</pre>
+            </div>
+          </div>
+
+          <div id="sync-content-markdown" class="sync-tab-content">
+            <div class="code-block-wrapper">
+              <div class="code-header">
+                <span>Universal Markdown Transcript</span>
+                <button class="btn-icon-text" onclick="copyCode('code-sync-md')">Copy</button>
+              </div>
+              <pre id="code-sync-md" class="code-pre"># Markdown transcript will populate here</pre>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- AI Connector & Easy Install Hub -->
+  <section class="connectors-section" id="connectors">
+    <h2 class="section-title">🔌 Plug Unifile into Any AI Architecture</h2>
+    <p class="section-desc">Zero-config install, completely free and open source. Connect directly to Claude Desktop, OpenAI, LangChain, Cursor, or your custom LLM pipeline.</p>
+
+    <div class="tabs-container">
+      <div class="tabs-nav">
+        <button class="tab-btn active" data-tab="tab-mcp">🤖 Model Context Protocol (MCP)</button>
+        <button class="tab-btn" data-tab="tab-openai">⚡ OpenAI / Anthropic Tool Calling</button>
+        <button class="tab-btn" data-tab="tab-langchain">🦜️🔗 LangChain & LlamaIndex</button>
+        <button class="tab-btn" data-tab="tab-cli">💻 CLI & Python SDK</button>
+        <button class="tab-btn" data-tab="tab-curl">🌐 REST API & cURL</button>
+        <button class="tab-btn" data-tab="tab-icon" id="icon-tab">🎨 Animated Icon Asset</button>
+      </div>
+
+      <!-- Tab 1: MCP Server -->
+      <div id="tab-mcp" class="tab-content active">
+        <p style="margin-bottom: 12px; color: var(--text-muted); font-size: 0.9rem;">
+          Connect Unifile to <strong>Claude Desktop</strong>, <strong>Cursor</strong>, or <strong>Windsurf</strong> by adding this configuration to your <code>claude_desktop_config.json</code>:
+        </p>
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span>claude_desktop_config.json</span>
+            <button class="btn-icon-text" onclick="copyCode('code-mcp')">Copy</button>
+          </div>
+          <pre id="code-mcp" class="code-pre">{
+  "mcpServers": {
+    "unifile": {
+      "command": "python3",
+      "args": [
+        "-m",
+        "unifile.cli",
+        "--mcp"
+      ]
+    }
+  }
+}</pre>
+        </div>
+      </div>
+
+      <!-- Tab 2: OpenAI Tools -->
+      <div id="tab-openai" class="tab-content">
+        <p style="margin-bottom: 12px; color: var(--text-muted); font-size: 0.9rem;">
+          Native function calling for GPT-4o, Claude 3.5/3.7, and Gemini:
+        </p>
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span>agent_dispatcher.py</span>
+            <button class="btn-icon-text" onclick="copyCode('code-openai')">Copy</button>
+          </div>
+          <pre id="code-openai" class="code-pre">from openai import OpenAI
+from unifile import UNIFILE_TOOL_SCHEMAS, execute_unifile_tool
+
+client = OpenAI()
+
+response = client.chat.completions.create(
+    model="gpt-4o",
+    messages=[{"role": "user", "content": "Inspect and translate corrupted_invoice.pdf into Spanish."}],
+    tools=UNIFILE_TOOL_SCHEMAS,
+    tool_choice="auto"
+)
+
+# Dispatch tool call
+for tool_call in response.choices[0].message.tool_calls:
+    result = execute_unifile_tool(tool_call.function.name, json.loads(tool_call.function.arguments))
+    print(f"Readability Score: {result['readability_score']}% (>=80% guaranteed)")
+    print(result['cleaned_text'])</pre>
+        </div>
+      </div>
+
+      <!-- Tab 3: LangChain -->
+      <div id="tab-langchain" class="tab-content">
+        <p style="margin-bottom: 12px; color: var(--text-muted); font-size: 0.9rem;">
+          Plug directly into LangChain or LlamaIndex agent react loops:
+        </p>
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span>langchain_agent.py</span>
+            <button class="btn-icon-text" onclick="copyCode('code-langchain')">Copy</button>
+          </div>
+          <pre id="code-langchain" class="code-pre">from unifile.connectors.langchain_tool import UnifileTool
+from langgraph.prebuilt import create_react_agent
+
+# Instantiate Unifile read-only universal connector
+unifile_tool = UnifileTool(preferred_language="en")
+
+agent = create_react_agent(
+    model="gpt-4o",
+    tools=[unifile_tool]
+)
+
+result = agent.invoke({"messages": [("user", "Summarize confidential_spec.docx")]})
+print(result)</pre>
+        </div>
+      </div>
+
+      <!-- Tab 4: CLI & SDK -->
+      <div id="tab-cli" class="tab-content">
+        <p style="margin-bottom: 12px; color: var(--text-muted); font-size: 0.9rem;">
+          One-line installation and zero-config CLI or Python usage:
+        </p>
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span>Terminal & Python SDK</span>
+            <button class="btn-icon-text" onclick="copyCode('code-cli')">Copy</button>
+          </div>
+          <pre id="code-cli" class="code-pre"># 1. Easy Install (Free, Open-Source)
+pip install unifile-by-soniscorett
+
+# 2. Command Line Usage
+unifile corrupted_file.pdf --lang es --output clean.txt
+
+# 3. Python SDK One-Liner
+import unifile
+
+# Reads any file format, heals corruptions, guarantees >= 80% readability:
+clean_text = unifile.read("corrupted_contract.pdf", lang="en")
+print(clean_text)</pre>
+        </div>
+      </div>
+
+      <!-- Tab 5: REST API -->
+      <div id="tab-curl" class="tab-content">
+        <p style="margin-bottom: 12px; color: var(--text-muted); font-size: 0.9rem;">
+          Universal REST endpoint for file uploading or raw string streaming:
+        </p>
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span>cURL / HTTP Request</span>
+            <button class="btn-icon-text" onclick="copyCode('code-curl')">Copy</button>
+          </div>
+          <pre id="code-curl" class="code-pre"># File Upload (PDF, Word, Excel, PowerPoint, ZIP, etc.)
+curl -X POST http://localhost:8000/api/v1/translate \
+  -F "file=@damaged_telemetry.xlsx" \
+  -F "preferred_language=es"
+
+# JSON Payload
+curl -X POST http://localhost:8000/api/v1/translate \
+  -H "Content-Type: application/json" \
+  -d '{
+    "text": "L\u0027\u00c3\u00a9quipe a valid\u00c3\u00a9 le contrat.",
+    "preferred_language": "en"
+  }'</pre>
+        </div>
+      </div>
+
+      <!-- Tab 6: Animated Icon Asset -->
+      <div id="tab-icon" class="tab-content">
+        <div class="icon-asset-grid">
+          <div class="icon-asset-card">
+            <img src="/static/assets/unifile-icon.svg" alt="Soniscorett Unifile Icon" style="width: 140px; height: 140px;">
+            <div style="font-weight: 700; font-size: 0.85rem; margin-top: 8px;">unifile-icon.svg</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted);">Short Kinetic Hologram</div>
+            <a href="/static/assets/unifile-icon.svg" download="unifile-by-soniscorett-icon.svg" class="btn-icon-text" style="margin-top: 10px;">💾 Download SVG</a>
+          </div>
+          <div>
+            <p style="margin-bottom: 10px; color: var(--text-muted); font-size: 0.88rem;">
+              Embed the official Soniscorett Unifile animated icon in your AI application, README, or web dashboard:
+            </p>
+            <div class="code-block-wrapper">
+              <div class="code-header">
+                <span>HTML / Web Embed</span>
+                <button class="btn-icon-text" onclick="copyCode('code-embed')">Copy</button>
+              </div>
+              <pre id="code-embed" class="code-pre">&lt;!-- Embed Unifile Animated Icon --&gt;
+&lt;img src="static/assets/unifile-icon.svg" 
+     alt="Unifile by Soniscorett" 
+     width="64" 
+     height="64" 
+     style="filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.4));" /&gt;</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="/static/assets/favicon.svg" alt="Soniscorett" width="22" height="22">
+        <span>Unifile by Soniscorett • Universal AI Connector</span>
+      </div>
+      <div class="footer-links">
+        <span>MIT License • 100% Free to Use</span>
+        <span>Strictly Read-Only Guarantee</span>
+        <span>Version 2.4.0</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
